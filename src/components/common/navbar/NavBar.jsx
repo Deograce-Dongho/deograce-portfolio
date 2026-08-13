@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import logo from "../../../assets/logo.png";
 import { Link } from "react-scroll";
 
 const navItems = [
   { id: 1, name: "Home", url: "introduction" },
   { id: 2, name: "About", url: "profile" },
   { id: 3, name: "Process", url: "work-process" },
-  { id: 4, name: "Portfolio", url: "portfolio" },
-  { id: 5, name: "Blog", url: "blog" },
-  { id: 6, name: "Services", url: "services" },
+  { id: 4, name: "Projects", url: "portfolio" },
 ];
 
 const handleMenuClick = () => {
@@ -21,7 +18,7 @@ const menu = navItems.map((item) => (
   <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
     <Link
       onClick={handleMenuClick}
-      to={item.url.toLowerCase()}
+      to={item.url}
       smooth={true}
       duration={1000}
       spy={true}
@@ -30,7 +27,7 @@ const menu = navItems.map((item) => (
         backgroundColor: "#9929fb",
         color: "white",
       }}
-      className={`hover:text-picto-primary px-5 py-3 mx-1`}
+      className="hover:text-picto-primary px-5 py-3 mx-1"
     >
       {item.name}
     </Link>
@@ -44,7 +41,9 @@ const NavBar = () => {
     const handleScroll = () => {
       setPosition(window.scrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -59,9 +58,15 @@ const NavBar = () => {
       } z-50 transition-all duration-1000`}
     >
       <div className="navbar flex justify-between mx-auto content">
-        <div className="flex items-center justify-between">
+
+        {/* Mobile menu */}
+        <div className="flex items-center">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -77,44 +82,58 @@ const NavBar = () => {
                 />
               </svg>
             </div>
+
             <ul
               tabIndex={0}
-              className={`menu menu-lg dropdown-content rounded-box z-1 mt-3 w-lvw p-2 shadow font-semibold flex-nowrap bg-white text-black`}
+              className="menu menu-lg dropdown-content rounded-box z-1 mt-3 w-lvw p-2 shadow font-semibold flex-nowrap bg-white text-black"
             >
               {menu}
+
+              {/* Mobile Contact */}
+              <li>
+                <Link
+                  onClick={handleMenuClick}
+                  to="contact"
+                  smooth={true}
+                  duration={900}
+                  className="px-5 py-3 mx-1"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
+          {/* Name */}
           <Link
-            href="#introduction"
-            to={`introduction`}
+            to="introduction"
             smooth={true}
             duration={900}
-            className="flex items-center border-0 lg:max-xxl:ps-5"
+            className="flex items-center border-0 lg:max-xxl:ps-5 cursor-pointer"
           >
-            <img src={logo} className="h-8 sm:h-14 rounded-2xl" alt="logo" />
-            <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
-              Brooklyn
+            <p className="text-2xl sm:text-[32px] font-semibold">
+              Deogrâce
             </p>
           </Link>
         </div>
 
+        {/* Desktop navigation */}
         <div className="lg:flex items-center">
           <ul className="hidden lg:flex menu menu-horizontal text-[16px] font-medium md:shrink-0">
             {menu}
           </ul>
-          <p className="">
-            <Link
-              className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
-              href="#contact"
-              to={`contact`}
-              smooth={true}
-              duration={900}
-            >
-              Contact
-            </Link>
-          </p>
+
+          {/* Contact button */}
+          <Link
+            className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
+            to="contact"
+            smooth={true}
+            duration={900}
+          >
+            Contact
+          </Link>
         </div>
+
       </div>
     </div>
   );

@@ -1,33 +1,36 @@
-import {
-  faBehance,
-  faDribbble,
-  faFacebookF,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const socialIcons = [
-  { icon: faFacebookF, link: "#!" },
-  { icon: faDribbble, link: "#!" },
-  { icon: faInstagram, link: "#!" },
-  { icon: faLinkedin, link: "#!" },
-  { icon: faBehance, link: "#!" },
+  {
+    icon: faLinkedin,
+    link: "https://www.linkedin.com/",
+    label: "LinkedIn",
+  },
+  {
+    icon: faGithub,
+    link: "https://github.com/",
+    label: "GitHub",
+  },
 ];
 
 const SocialMedia = () => {
-  return socialIcons.map((item, index) => (
-    <a
-      href={item.link}
-      className={`text-picto-primary hover:bg-picto-primary p-2 pt-3 xs:p-2.5 xs:pt-3.75 sm:pt-4 md:pt-5 sm:p-3 md:p-3.75 hover:text-white rounded-md`}
-      key={index}
-    >
-      <FontAwesomeIcon
-        icon={item.icon}
-        className={`text-xl w-4.5 aspect-square`}
-      />
-    </a>
-  ));
+  return (
+    <div className="flex justify-center gap-3">
+      {socialIcons.map((item, index) => (
+        <a
+          key={index}
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={item.label}
+          className="text-picto-primary hover:bg-picto-primary hover:text-white p-3 rounded-md transition-all duration-300"
+        >
+          <FontAwesomeIcon icon={item.icon} className="text-xl" />
+        </a>
+      ))}
+    </div>
+  );
 };
 
 export default SocialMedia;
