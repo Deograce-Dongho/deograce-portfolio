@@ -6,18 +6,18 @@ import InformationSummary from "./InformationSummary";
 const informationSummaryData = [
   {
     id: 1,
-    title: "Experience",
-    description: "15 Y.",
+    title: "Study",
+    description: "2nd Year",
   },
   {
     id: 2,
-    title: "Projects Completed",
-    description: "250+",
+    title: "Projects",
+    description: "5+",
   },
   {
     id: 3,
-    title: "Happy Clients",
-    description: "58",
+    title: "Technologies",
+    description: "7+",
   },
 ];
 
@@ -32,21 +32,20 @@ const Introduction = () => {
           <p className="text-3xl xxs:text-4xl sm:max-xl:text-5xl xl:text-6xl font-semibold w-full">
             Hello, I’m
             <span className="text-nowrap shrink-0 inline-block w-full">
-              Brooklyn Gilbert
+              Deograce Dongho
             </span>
           </p>
           <p className="text-xs xxs:text-lg lg:text-[18px] my-6">
-            I'm a Freelance <span className="bg-highlight">UI/UX Designer</span>{" "}
-            and <span className="bg-highlight"> Developer</span> based in
-            London, England. I strives to build immersive and beautiful web
-            applications through carefully crafted code and user-centric design.
+          I'm an Applied Computer Science student based in Mainz, Germany, 
+          with a strong interest in software development, IT and AI. I enjoy building practical solutions 
+          and learning new technologies through hands-on projects.
           </p>
           <p className="text-center lg:text-start">
             <a
               className="btn-primary btn btn-xs xxs:btn-lg text-white"
-              href="mailto:example@gmail.com"
+              href="mailto:deogracedongho@gmail.com"
             >
-              Say Hello!
+              Contact Me
             </a>
           </p>
         </div>

@@ -10,58 +10,59 @@ const projectData = [
   {
     id: 1,
     image: card1,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "JAVA · JAVAFX · POSTGRESQL",
+    title: "MediaVault",
     description:
-      "I focus on crafting smooth, responsive interfaces that balance aesthetic appeal with practical functionality.",
+      "A JavaFX desktop application for managing films, series, and books with PostgreSQL, including search, filtering, ratings, and watched status.",
     link: "#!",
   },
   {
     id: 2,
     image: card2,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "JAVA · JAVAFX",
+    title: "QLOCKTWO Word Clock",
     description:
-      "Designed an intuitive dashboard for product management, emphasizing clarity and user efficiency.",
+      "A Java-based digital clock inspired by the QLOCKTWO concept, displaying the current time using words instead of traditional numbers.",
     link: "#!",
   },
   {
     id: 3,
     image: card3,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "JAVA · ALGORITHMS",
+    title: "Star Battle",
     description:
-      "Developed a modern admin panel with a focus on usability and seamless navigation for end users and so on.",
+      "A logic puzzle game developed in Java, focusing on algorithmic problem-solving, game logic, and an interactive user interface.",
     link: "#!",
   },
   {
     id: 4,
     image: card4,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "PYTHON · AI",
+    title: "ThesisMentor",
     description:
-      "Created a responsive dashboard layout that adapts smoothly across devices and screen sizes and so on.",
+      "A project designed to support students during academic work by helping them structure, organize, and develop their ideas.",
     link: "#!",
   },
   {
     id: 5,
     image: card5,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "PYTHON · DATABASE",
+    title: "Database Project",
     description:
-      "Implemented interactive charts and widgets to visualize product data effectively for stakeholders.",
+      "A database-focused project involving data processing, SQL queries, structured data management, and database analysis.",
     link: "#!",
   },
   {
     id: 6,
     image: card6,
-    category: "UI-UX DESIGN",
-    title: "Product Admin Dashboard",
+    category: "C · COMPUTER SCIENCE",
+    title: "MIPS CPU Emulator",
     description:
-      "Enhanced user experience by streamlining workflows and optimizing interface components and so on.",
+      "A low-level programming project implementing the main components of a MIPS CPU emulator, including memory operations and instruction processing.",
     link: "#!",
   },
 ];
+
 
 const Portfolio = () => {
   return (
@@ -71,10 +72,11 @@ const Portfolio = () => {
     >
       <div className="xl:mb-17.5 mb-5">
         <div className="max-sm:px-2 text-center mx-auto max-w-144.25">
-          <p className="section-title ">Portfolio</p>
+          <p className="section-title ">My Projects</p>
           <p className="font-normal text-[18px] max-sm:text-[14px] pt-6 text-gray-400">
-            Here's a selection of my recent work, showcasing my skills in
-            creating user-centric and visually appealing interfaces.
+            Here are some of the projects I have developed through my studies and
+            hands-on learning, covering software development, databases, and
+            problem-solving.
           </p>
         </div>
       </div>

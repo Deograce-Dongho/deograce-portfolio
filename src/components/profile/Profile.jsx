@@ -16,7 +16,7 @@ const Profile = () => {
             <img
               className="bg-soft-white h-[120%] object-cover"
               src={person}
-              alt=""
+              alt="Deograce Dongho"
             />
           </div>
           {/* Social media section */}
@@ -33,25 +33,28 @@ const Profile = () => {
           <h2
             className={`text-2xl xxs:text-3xl sm:text-4xl lg:text-[38px] text-[min(24px,38px)] max-md:text-center font-semibold mb-8`}
           >
-            I am Professional User Experience Designer
+            About Me
           </h2>
           <div
             className={`text-xs xs:text-[16px] lg:text-lg font-normal max-md:text-center text-gray-600`}
           >
             <p className={``}>
-              I design and develop services for customers specializing creating
-              stylish, modern websites, web services and online stores. My
-              passion is to design digital user experiences.
+                I am an Applied Computer Science student with a strong interest in
+                software development, IT, and artificial intelligence. I enjoy
+                combining technical knowledge with practical problem-solving to
+                build useful and reliable solutions.
             </p>
             <p className="mt-3">
-              I design and develop services for customers specializing creating
-              stylish, modern websites, web services.
+                Through university projects and hands-on learning, I have gained
+                experience with Java, Python, C, SQL, web technologies, and
+                databases. I am continuously developing my skills and looking
+                forward to gaining practical experience in the IT industry.
             </p>
           </div>
           <div className="mt-8 flex max-md:justify-center">
             <a
               className="btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 btn-primary text-xs xxs:text-[14px] sm:text-[16px]"
-              href="#!"
+              href="#projects"
             >
               My Projects
             </a>
