@@ -1,3 +1,5 @@
+import logo from "../../../assets/images/logo1.png";
+
 const navItems = [
   { id: 1, name: "Home", url: "Home" },
   { id: 2, name: "About", url: "About" },
@@ -11,12 +13,19 @@ const Footer = () => {
     <footer className="pt-25 md:pt-40 content max-2xl:px-3">
       <div className="flex max-md:flex-col justify-between mx-0 items-center h-full w-full text-neutral-200">
 
-        {/* Name */}
+        {/* Logo */}
         <a
           href="#home"
-          className="text-2xl sm:text-3xl font-semibold"
+          className="flex items-center"
         >
-          Deogrâce
+          <img
+            src={logo}
+            alt="Deogrâce Dongho"
+            className="h-20 sm:h-24 w-auto object-contain"
+          />
+          <span className="text-2xl sm:text-3xl font-semibold ms-1 -translate-y-2">
+            Deogrâce
+          </span>
         </a>
 
         {/* Navigation */}

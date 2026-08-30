@@ -1,5 +1,6 @@
 import Introduction from "../components/introduction/Introduction";
 import Profile from "../components/profile/Profile";
+import Skills from "../components/skills/Skills";
 import WorkProcess from "../components/workProcess/WorkProcess";
 import Portfolio from "../components/portfolio/Portfolio";
 import Contact from "../components/contact/Contact";
@@ -14,6 +15,7 @@ const Home = () => {
           <Profile />
         </div>
       </div>
+      <Skills />
       <div className="bg-soft-white pt-30">
         <WorkProcess />
       </div>

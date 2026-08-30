@@ -1,15 +1,10 @@
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const socialIcons = [
   {
-    icon: faLinkedin,
-    link: "https://www.linkedin.com/",
-    label: "LinkedIn",
-  },
-  {
     icon: faGithub,
-    link: "https://github.com/",
+    link: "https://github.com/Deograce-Dongho",
     label: "GitHub",
   },
 ];
