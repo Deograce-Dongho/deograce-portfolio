@@ -41,7 +41,7 @@ const projectData = [
     title: "ThesisMentor",
     description:
       "A project designed to support students during academic work by helping them structure, organize, and develop their ideas.",
-    link: "https://github.com/Archange-Mbah/ThesisMentor",
+    link: "https://github.com/Deograce-Dongho/ThesisMentor",
   },
   {
     id: 5,
