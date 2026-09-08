@@ -5,8 +5,10 @@ import logo from "../../../assets/images/logo1.png";
 const navItems = [
   { id: 1, name: "Home", url: "introduction" },
   { id: 2, name: "About", url: "profile" },
-  { id: 3, name: "Process", url: "work-process" },
-  { id: 4, name: "Projects", url: "portfolio" },
+  { id: 3, name: "Certificates", url: "certificates" },
+  { id: 4, name: "Skills", url: "skills" },
+  { id: 5, name: "Process", url: "work-process" },
+  { id: 6, name: "Projects", url: "portfolio" },
 ];
 
 const handleMenuClick = () => {
