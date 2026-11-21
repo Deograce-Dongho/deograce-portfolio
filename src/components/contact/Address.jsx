@@ -6,14 +6,14 @@ const Address = ({ item }) => {
 
   return (
     <div
-      className="max-w-84 p-3 md:p-3.75 lg:p-6 flex rounded-[10px] bg-white duration-450 cursor-pointer hover:shadow-[0px_0px_37px_5px_rgba(0,_0,_0,_0.1)] shadow-gray-200 max-sm:mx-auto"
+      className="max-w-84 p-3 md:p-3.75 lg:p-6 flex rounded-[10px] bg-white transition-shadow duration-500 cursor-pointer hover:shadow-[0px_0px_37px_5px_rgba(0,_0,_0,_0.1)] shadow-gray-200 max-sm:mx-auto"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
       <div
         className={`h-10 md:h-12 aspect-square ${
           hover ? "bg-picto-primary" : "bg-[#EDD8FF80]"
-        } center rounded-[4px]`}
+        } center rounded-lg transition-colors duration-300`}
       >
         <FontAwesomeIcon
           icon={item?.icon}

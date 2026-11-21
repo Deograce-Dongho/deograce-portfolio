@@ -1,3 +1,4 @@
+import Reveal from "../common/reveal/Reveal";
 import {
   faEnvelope,
   faLocationDot,
@@ -26,8 +27,11 @@ const Contact = () => {
         className="content p-4 md:p-10 lg:p-22 bg-white rounded-2xl shadow-[0px_0px_90px_9px_rgba(0,_0,_0,_0.1)]"
         id="contact"
       >
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-3xl md:text-[38px] font-semibold text-[#132238]">
+        <Reveal className="max-w-3xl mx-auto text-center">
+          <p className="text-[12px] font-semibold tracking-[0.2em] uppercase text-picto-primary mb-3">
+            Get in touch
+          </p>
+          <p className="font-display text-3xl md:text-[42px] font-bold tracking-tight text-[#132238]">
             Let's Connect
           </p>
 
@@ -45,7 +49,7 @@ const Contact = () => {
           <div className="w-full">
             <SocialMedia />
           </div>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import Introduction from "../components/introduction/Introduction";
 import Profile from "../components/profile/Profile";
-import Certificates from "../components/certificates/Certificates";
+// Certificates section hidden for now; re-enable by restoring the import and <Certificates /> below
+// import Certificates from "../components/certificates/Certificates";
 import Skills from "../components/skills/Skills";
 import WorkProcess from "../components/workProcess/WorkProcess";
 import Portfolio from "../components/portfolio/Portfolio";
@@ -16,7 +17,7 @@ const Home = () => {
           <Profile />
         </div>
       </div>    
-      <Certificates />
+      {/* <Certificates /> */}
       <Skills />
       <div className="bg-soft-white pt-30">
         <WorkProcess />

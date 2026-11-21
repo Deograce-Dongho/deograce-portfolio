@@ -1,3 +1,4 @@
+import Reveal from "../common/reveal/Reveal";
 import Projects from "./Projects";
 import mediavault from "../../assets/images/portfolio-images/mediavault.png";
 import qlocktwo from "../../assets/images/portfolio-images/qlocktwo.png";
@@ -27,24 +28,6 @@ const projectData = [
     link: "https://github.com/Deograce-Dongho/MediaVault",
   },
   {
-    id: 2,
-    image: qlocktwo,
-    category: "JAVA · JAVAFX",
-    title: "QLOCKTWO Word Clock",
-    description:
-    "A JavaFX application inspired by the QLOCKTWO concept, displaying the current time through illuminated words and combining graphical interface design with time-based programming.",
-    link: "https://github.com/Deograce-Dongho/QLOCKTWO",
-  },
-  {
-    id: 3,
-    image: Starrbattle,
-    category: "JAVA · ALGORITHMS",
-    title: "Star Battle",
-    description:
-      "A logic puzzle game developed in Java, focusing on algorithmic problem-solving, game logic, and an interactive user interface.",
-    link: "https://github.com/Deograce-Dongho/StarBattle-Go",
-  },
-  {
     id: 4,
     image: thesismenthor,
     category: "PYTHON · AI",
@@ -71,6 +54,24 @@ const projectData = [
       "A low-level programming project implementing the main components of a MIPS CPU emulator, including memory operations and instruction processing.",
     link: "https://github.com/Deograce-Dongho/MIPS-CPU",
   },
+  {
+    id: 2,
+    image: qlocktwo,
+    category: "JAVA · JAVAFX",
+    title: "QLOCKTWO Word Clock",
+    description:
+    "A JavaFX application inspired by the QLOCKTWO concept, displaying the current time through illuminated words and combining graphical interface design with time-based programming.",
+    link: "https://github.com/Deograce-Dongho/QLOCKTWO",
+  },
+  {
+    id: 3,
+    image: Starrbattle,
+    category: "JAVA · ALGORITHMS",
+    title: "Star Battle",
+    description:
+      "A logic puzzle game developed in Java, focusing on algorithmic problem-solving, game logic, and an interactive user interface.",
+    link: "https://github.com/Deograce-Dongho/StarBattle-Go",
+  },
 ];
 
 const Portfolio = () => {
@@ -80,7 +81,10 @@ const Portfolio = () => {
       id="portfolio"
     >
       <div className="xl:mb-17.5 mb-5">
-        <div className="max-sm:px-2 text-center mx-auto max-w-144.25">
+        <Reveal className="max-sm:px-2 text-center mx-auto max-w-144.25">
+          <p className="text-[12px] font-semibold tracking-[0.2em] uppercase text-picto-primary mb-3">
+            Selected work
+          </p>
           <p className="section-title">My Projects</p>
 
           <p className="font-normal text-[18px] max-sm:text-[14px] pt-6 text-gray-400">
@@ -88,13 +92,15 @@ const Portfolio = () => {
             and hands-on learning, covering software development, databases,
             and problem-solving.
           </p>
-        </div>
+        </Reveal>
       </div>
 
       <div className="mx-auto flex justify-center">
         <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
-          {projectData.map((data) => (
-            <Projects data={data} key={data.id} />
+          {projectData.map((data, index) => (
+            <Reveal key={data.id} delay={(index % 3) * 120}>
+              <Projects data={data} />
+            </Reveal>
           ))}
         </div>
       </div>

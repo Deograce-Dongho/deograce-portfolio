@@ -4,16 +4,6 @@
   themes: light --default, dark --prefersdark, cupcake;
 }
 
-* {
-  transition-property: all;
-  transition-timing-function: var(
-    --tw-ease,
-    var(--default-transition-timing-function)
-  );
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
-  --tw-duration: 200ms;
-  transition-duration: 200ms;
-}
 
 @theme {
   --breakpoint-xxs: 21.25rem; /* COMMENT: 340px */
@@ -23,6 +13,7 @@
   --color-picto-primary-dark: #650fa0;
   --color-soft-white: #f0f1f3;
   --color-soft-dark: #87909d;
+  --font-display: "Plus Jakarta Sans", "Work Sans", sans-serif;
 }
 
 .btn-primary {
@@ -37,7 +28,7 @@ body {
 }
 
 .section-title {
-  @apply md:font-semibold text-3xl sm:text-4xl md:text-5xl font-medium;
+  @apply font-display font-bold tracking-tight text-3xl sm:text-4xl md:text-5xl text-[#132238];
 }
 
 .center {
@@ -45,17 +36,71 @@ body {
 }
 
 .introduction-profile-background {
-  background: radial-gradient(
-      circle at 12% 100%,
-      #ffe2b0f5 1% 5px,
-      transparent 15%
-    ),
-    /* bottom left */
-      radial-gradient(circle at 95% -15%, #da4df166 5%, transparent 30%),
-    /* top right */
-      radial-gradient(circle at center right, #c4f5e9b2 2%, transparent 35%); /* center right */
+  background:
+    radial-gradient(circle at 85% 10%, #e9d5ff 0%, transparent 35%),
+    radial-gradient(circle at 5% 40%, #f3e8ff 0%, transparent 30%),
+    linear-gradient(180deg, #faf7ff 0%, #faf7ff 70%, #ffffff 100%);
 }
 .blog-background {
   background: radial-gradient(circle at -10% 0%, #da4df166 1%, transparent 25%),
     radial-gradient(circle at 110% 30%, #c4f5e9b2 5%, transparent 25%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll reveal: elements fade and slide in when they enter the screen */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Enlarged project image */
+.lightbox-backdrop {
+  animation: lightbox-fade 0.3s ease-out;
+}
+
+.lightbox-image {
+  animation: lightbox-zoom 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes lightbox-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes lightbox-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-backdrop,
+  .lightbox-image {
+    animation: none;
+  }
 }

@@ -1,3 +1,4 @@
+import Reveal from "../common/reveal/Reveal";
 import WorkSteps from "./WorkSteps";
 
 const workStepData = [
@@ -41,7 +42,10 @@ const WorkProcess = () => {
       className="content grid xl:grid-cols-2 xl:items-center px-2 py-5 md:py-10 lg:py-25 xl:py-35 max-xxl:px-4"
       id="work-process"
     >
-      <div className="lg:pe-10 xl:pe-35.75 max-xs:mb-3 max-xl:mb-8">
+      <Reveal className="lg:pe-10 xl:pe-35.75 max-xs:mb-3 max-xl:mb-8">
+        <p className="text-[12px] font-semibold tracking-[0.2em] uppercase text-picto-primary mb-3 max-xl:text-center">
+          My process
+        </p>
         <p className="section-title max-xl:text-center">How I Work</p>
         <p className="mt-6 mb-4 md:text-[18px] text-sm font-normal max-xl:text-center text-gray-500">
           I approach projects with a structured and practical mindset, from
@@ -52,18 +56,19 @@ const WorkProcess = () => {
             I enjoy learning through hands-on projects and combining technical knowledge with 
             problem-solving to build useful and reliable solutions.
         </p>
-      </div>
+      </Reveal>
 
       <div className="grid xs:grid-cols-2 justify-end my-2 w-fit mx-auto ">
         {workStepData.map((data, index) => {
           return (
-            <WorkSteps
-              data={data}
-              style={`max-xs:mt-3 p-4 sm:p-8 bg-white aspect-auto sm:max-w-78 ${
-                index % 2 == 1 ? "xs:ms-3 xs:mt-6 " : "xs:mb-6"
-              }`}
-              key={index}
-            />
+            <Reveal key={index} delay={index * 120}>
+              <WorkSteps
+                data={data}
+                style={`max-xs:mt-3 p-4 sm:p-8 bg-white aspect-auto sm:max-w-78 ${
+                  index % 2 == 1 ? "xs:ms-3 xs:mt-6 " : "xs:mb-6"
+                }`}
+              />
+            </Reveal>
           );
         })}
       </div>

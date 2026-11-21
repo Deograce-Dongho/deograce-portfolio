@@ -1,3 +1,4 @@
+import Reveal from "../common/reveal/Reveal";
 import person from "../../assets/images/person1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
@@ -14,10 +15,10 @@ const Profile = () => {
       <div className="flex max-md:flex-col justify-between items-center gap-6">
 
         {/* Profile image */}
-        <div className="xxl:max-w-106 w-auto h-auto xxl:max-h-126">
-          <div className="max-w-106 h-117 object-fill overflow-hidden rounded-xl">
+        <Reveal className="xxl:max-w-106 w-auto h-auto xxl:max-h-126">
+          <div className="group max-w-106 h-117 object-fill overflow-hidden rounded-2xl bg-gradient-to-b from-[#f3e8ff] to-[#e9d5ff]">
             <img
-              className="bg-soft-white h-[120%] object-cover"
+              className="h-[120%] object-cover group-hover:scale-105 transition-transform duration-700"
               src={person}
               alt="Deograce Dongho"
             />
@@ -31,11 +32,14 @@ const Profile = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* About Me */}
-        <div className="max-sm:w-full w-[33rem]">
-          <h2 className="text-2xl xxs:text-3xl sm:text-4xl lg:text-[38px] text-[min(24px,38px)] max-md:text-center font-semibold mb-8">
+        <Reveal delay={150} className="max-sm:w-full w-[33rem]">
+          <p className="text-[12px] font-semibold tracking-[0.2em] uppercase text-picto-primary mb-3 max-md:text-center">
+            Get to know me
+          </p>
+          <h2 className="font-display text-2xl xxs:text-3xl sm:text-4xl lg:text-[42px] max-md:text-center font-bold tracking-tight text-[#132238] mb-8">
             About Me
           </h2>
 
@@ -83,7 +87,7 @@ const Profile = () => {
             </a>
 
           </div>
-        </div>
+        </Reveal>
       </div>
     </div>
   );

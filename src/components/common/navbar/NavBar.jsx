@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../../assets/images/logo1.png";
 
 const navItems = [
   { id: 1, name: "Home", url: "introduction" },
   { id: 2, name: "About", url: "profile" },
-  { id: 3, name: "Certificates", url: "certificates" },
+  // { id: 3, name: "Certificates", url: "certificates" },
   { id: 4, name: "Skills", url: "skills" },
   { id: 5, name: "Process", url: "work-process" },
   { id: 6, name: "Projects", url: "portfolio" },
@@ -17,58 +19,42 @@ const handleMenuClick = () => {
   }
 };
 
-const menu = navItems.map((item) => (
-  <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
-    <Link
-      onClick={handleMenuClick}
-      to={item.url}
-      smooth={true}
-      duration={1000}
-      spy={true}
-      offset={-140}
-      activeStyle={{
-        backgroundColor: "#9929fb",
-        color: "white",
-      }}
-      className="hover:text-picto-primary px-5 py-3 mx-1"
-    >
-      {item.name}
-    </Link>
-  </li>
-));
+// Shared props for every scroll link
+const scrollProps = {
+  smooth: true,
+  duration: 900,
+  spy: true,
+  offset: -100,
+};
 
 const NavBar = () => {
-  const [position, setPosition] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setPosition(window.scrollY);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div
-      className={`sticky top-0 ${
-        position > 50
-          ? "bg-soft-white border-b border-gray-300"
-          : "bg-white border-white"
-      } z-50 transition-all duration-1000`}
+      className={`sticky top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-lg border-b border-purple-100 shadow-sm"
+          : "bg-[#faf7ff] border-b border-transparent"
+      }`}
     >
-      <div className="navbar flex justify-between mx-auto content">
-
-        {/* Mobile menu */}
-        <div className="flex items-center">
-          <div className="dropdown">
+      <nav className="content flex items-center justify-between gap-4 px-4 xxl:px-0 py-3">
+        <div className="flex items-center gap-1">
+          {/* Mobile menu */}
+          <div className="dropdown lg:hidden">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-ghost lg:hidden"
+              aria-label="Open menu"
+              className="btn btn-ghost btn-sm px-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,19 +74,22 @@ const NavBar = () => {
 
             <ul
               tabIndex={0}
-              className="menu menu-lg dropdown-content rounded-box z-1 mt-3 w-lvw p-2 shadow font-semibold flex-nowrap bg-white text-black"
+              className="menu menu-lg dropdown-content z-10 mt-3 w-[calc(100vw-2rem)] rounded-2xl border border-purple-100 bg-white p-2 font-semibold text-[#132238] shadow-xl"
             >
-              {menu}
-
-              {/* Mobile Contact */}
+              {navItems.map((item) => (
+                <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
+                  <Link
+                    {...scrollProps}
+                    to={item.url}
+                    onClick={handleMenuClick}
+                    activeClass="!bg-picto-primary !text-white"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
               <li>
-                <Link
-                  onClick={handleMenuClick}
-                  to="contact"
-                  smooth={true}
-                  duration={900}
-                  className="px-5 py-3 mx-1"
-                >
+                <Link {...scrollProps} to="contact" onClick={handleMenuClick}>
                   Contact
                 </Link>
               </li>
@@ -112,37 +101,53 @@ const NavBar = () => {
             to="introduction"
             smooth={true}
             duration={900}
-            className="flex items-center border-0 lg:max-xxl:ps-5 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer"
           >
             <img
               src={logo}
               alt="Deogrâce Dongho"
-              className="h-16 sm:h-20 w-auto object-contain"
+              className="h-11 sm:h-12 w-auto object-contain"
             />
-            <span className="text-2xl sm:text-3xl font-semibold ml-1">
-              Deogrâce
+            <span className="leading-none">
+              <span className="font-display block text-xl sm:text-2xl font-bold text-[#132238]">
+                Deogrâce
+              </span>
+              <span className="block text-[10px] font-semibold tracking-[0.25em] text-picto-primary mt-1">
+                PORTFOLIO
+              </span>
             </span>
           </Link>
         </div>
 
         {/* Desktop navigation */}
-        <div className="lg:flex items-center">
-          <ul className="hidden lg:flex menu menu-horizontal text-[16px] font-medium md:shrink-0">
-            {menu}
-          </ul>
+        <ul className="hidden lg:flex items-center gap-1 rounded-full border border-purple-100 bg-white/70 backdrop-blur p-1.5 shadow-sm">
+          {navItems.map((item) => (
+            <li key={item.id}>
+              <Link
+                {...scrollProps}
+                to={item.url}
+                activeClass="!bg-picto-primary !text-white shadow-md shadow-purple-300/50"
+                className="block cursor-pointer rounded-full px-5 py-2 text-[15px] font-medium text-[#424E60] hover:text-picto-primary transition-colors duration-300"
+              >
+                {item.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-          {/* Contact button */}
-          <Link
-            className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
-            to="contact"
-            smooth={true}
-            duration={900}
-          >
-            Contact
-          </Link>
-        </div>
-
-      </div>
+        {/* Contact button */}
+        <Link
+          {...scrollProps}
+          to="contact"
+          className="group inline-flex items-center gap-2 cursor-pointer rounded-xl bg-picto-primary px-4 sm:px-5 py-2.5 text-[14px] sm:text-[15px] font-semibold text-white shadow-md shadow-purple-300/50 hover:bg-picto-primary-dark transition-colors duration-300"
+        >
+          Contact
+          <FontAwesomeIcon
+            icon={faArrowRight}
+            className="text-[12px] group-hover:translate-x-1 transition-transform duration-300"
+          />
+        </Link>
+      </nav>
     </div>
   );
 };

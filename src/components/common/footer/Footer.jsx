@@ -44,17 +44,9 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Template attribution */}
+      {/* Copyright */}
       <p className="text-white text-center max-xs:text-[12px] max-md:text-[14px] w-full py-10">
-        Designed &amp; Developed with ❤️ using{" "}
-        <a
-          href="https://themewagon.com/"
-          className="underline font-bold"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ThemeWagon
-        </a>
+        Crafted with ❤️ in Mainz · © {new Date().getFullYear()} Deogrâce Dongho
       </p>
     </footer>
   );

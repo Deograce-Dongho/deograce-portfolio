@@ -4,7 +4,7 @@ const WorkSteps = ({ data, style }) => {
   const [hover, setHover] = useState(false);
   return (
     <div
-      className={`rounded-xl hover:drop-shadow-2xl shadow-gray-300 ease-out duration-1000  ${
+      className={`rounded-2xl border border-purple-50 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-100 transition-all ease-out duration-500  ${
         style && style
       }`}
       onMouseOver={() => setHover(true)}
@@ -13,7 +13,7 @@ const WorkSteps = ({ data, style }) => {
       <div
         className={`w-11 h-11 sm:w-18 sm:h-18 ${
           hover ? "bg-picto-primary" : "bg-[#EDD8FF80]"
-        } text-center center rounded-md`}
+        } text-center center rounded-xl transition-colors duration-300`}
       >
         <svg
           viewBox="0 0 32 32"

@@ -1,7 +1,78 @@
-.bg-highlight {
-  background: linear-gradient(to top, #ffc8c8 40%, transparent 40%);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  padding-left: 2px;
-  padding-right: 2px;
+/* Name in the hero: purple gradient text */
+.text-gradient {
+  background: linear-gradient(90deg, #9929fb 0%, #7c3aed 45%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle dotted grid behind the photo */
+.hero-grid {
+  background-image: radial-gradient(#9929fb33 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+/* Blinking caret of the typing effect */
+.typing-caret {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  margin-left: 3px;
+  vertical-align: -0.12em;
+  border-radius: 2px;
+  background: #9929fb;
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Hero elements appear one after another when the page loads */
+.hero-in {
+  opacity: 0;
+  animation: hero-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: var(--hero-delay, 0ms);
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Floating badges around the photo */
+.float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-slow-delayed {
+  animation: float 6s ease-in-out 1.5s infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in,
+  .float-slow,
+  .float-slow-delayed,
+  .typing-caret {
+    animation: none;
+    opacity: 1;
+  }
 }
