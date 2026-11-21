@@ -5,8 +5,18 @@ import Starrbattle from "../../assets/images/portfolio-images/Starrbattle.png";
 import thesismenthor from "../../assets/images/portfolio-images/thesismenthor.png";
 import portfolio1 from "../../assets/images/portfolio-images/portfolio1.png";
 import cpu from "../../assets/images/portfolio-images/cpu.jpg";
+import churchreport from "../../assets/images/portfolio-images/churchreport.png";
 
 const projectData = [
+  {
+    id: 7,
+    image: churchreport,
+    category: "REACT · TAILWIND CSS · APPWRITE",
+    title: "ChurchReport",
+    description:
+      "A web application for churches to prepare Sunday service reports, manage members and visitors, track in-person and online attendance, view statistics, and export PDF reports.",
+    link: "https://github.com/Deograce-Dongho/ChurchReport",
+  },
   {
     id: 1,
     image: mediavault,
